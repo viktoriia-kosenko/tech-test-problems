@@ -8,6 +8,6 @@ test("test", () => {
     { name: "Harry", species: "cat", sold: false },
     { name: "Monica", species: "duck", sold: true }
   ];
-  const result = findPetsForSale(allPets);
-  expect(result).toEqual(["cat", "duck", "cat"]);
+  const petsForSale = findPetsForSale(allPets);
+  expect(petsForSale).toEqual(["cat", "duck", "cat"]);
 });

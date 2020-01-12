@@ -1,9 +1,9 @@
 const findPetsForSale = allPets => {
-  const result = [];
+  const petsForSale = [];
   allPets.forEach(pet => {
-    if (!pet.sold) result.push(pet.species);
+    if (!pet.sold) petsForSale.push(pet.species);
   });
-  return result;
+  return petsForSale;
 };
 
 module.exports = findPetsForSale;
