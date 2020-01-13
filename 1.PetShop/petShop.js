@@ -6,4 +6,8 @@ const findPetsForSale = allPets => {
   return petsForSale;
 };
 
-module.exports = findPetsForSale;
+const findPetsForSale2 = allPets => {
+  return allPets.filter(pet => !pet.sold).map(pet => pet.species);
+};
+
+module.exports = { findPetsForSale, findPetsForSale2 };
