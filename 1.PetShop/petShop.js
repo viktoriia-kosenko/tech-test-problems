@@ -10,4 +10,10 @@ const findPetsForSale2 = allPets => {
   return allPets.filter(pet => !pet.sold).map(pet => pet.species);
 };
 
-module.exports = { findPetsForSale, findPetsForSale2 };
+const findPetsForSale3 = allPets => {
+  return allPets.reduce((petsForSale, pet) => {
+    return !pet.sold ? [...petsForSale, pet.species] : petsForSale;
+  }, []);
+};
+
+module.exports = { findPetsForSale, findPetsForSale2, findPetsForSale3 };
