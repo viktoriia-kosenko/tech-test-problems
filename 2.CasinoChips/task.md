@@ -12,6 +12,8 @@ You will be given an array representing the number of chips of each color and yo
 
 ```
 solve([1,1,1]) = 1, because after you pick on day one, there will be only one chip left
+
 solve([1,2,1] = 2, you can pick twice; you pick two chips on day one then on day two
+
 solve([4,1,1]) = 2
 ```
