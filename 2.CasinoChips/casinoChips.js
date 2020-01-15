@@ -11,5 +11,16 @@ const calculateDays = chips => {
   }
 };
 
-calculateDays([5, 3, 2]);
-module.exports = calculateDays;
+const calculateDaysMathMethod = chips => {
+  const chipsSortedDescendant = chips.sort((a, b) => b - a);
+  const [max, mid, min] = chipsSortedDescendant;
+  const differenceTwoGreaterNum = max - mid;
+
+  if (differenceTwoGreaterNum > min) {
+    return min + mid;
+  } else {
+    return Math.floor((max + mid + min) / 2);
+  }
+};
+
+module.exports = { calculateDays, calculateDaysMathMethod };
