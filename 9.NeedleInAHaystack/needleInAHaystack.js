@@ -1,5 +1,5 @@
 const search = (arr, word) => {
-  return 1;
+  return 0;
 };
 
 module.exports = search;
