@@ -8,4 +8,14 @@ function partsSums(ls) {
   return sums;
 }
 
-module.exports = partsSums;
+function sumsOfParts(ls) {
+  return ls.reverse().reduce(
+    (a, b) => {
+      let el = a[0] + b;
+      return [el, ...a];
+    },
+    [0]
+  );
+}
+
+module.exports = { partsSums, sumsOfParts };
