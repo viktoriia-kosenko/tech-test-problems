@@ -1,8 +1,10 @@
 function idBestUsers() {
   let args = [...arguments];
   let otherArgs = args.slice(1);
-  let clients = [...new Set(args[0])].filter(el =>
-    otherArgs.every(arr => arr.indexOf(el) >= 0)
+  let clients = args[0].filter(
+    (el, index) =>
+      args[0].indexOf(el) === index &&
+      otherArgs.every(arr => arr.indexOf(el) >= 0)
   );
 
   if (clients.length === 0) {
