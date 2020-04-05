@@ -4,7 +4,7 @@ function idBestUsers() {
   let clients = args[0].filter(
     (el, index) =>
       args[0].indexOf(el) === index &&
-      otherArgs.every(arr => arr.indexOf(el) >= 0)
+      otherArgs.every((arr) => arr.indexOf(el) >= 0)
   );
 
   if (clients.length === 0) {
@@ -12,9 +12,9 @@ function idBestUsers() {
   } else {
     let answer = [];
     let allPurchases = [].concat(...args);
-    clients.sort().forEach(client => {
-      let num = allPurchases.filter(el => el === client).length;
-      let index = answer.findIndex(el => el[0] === num);
+    clients.sort().forEach((client) => {
+      let num = allPurchases.filter((el) => el === client).length;
+      let index = answer.findIndex((el) => el[0] === num);
       if (index >= 0) {
         answer[index][1].push(client);
       } else {
@@ -24,3 +24,5 @@ function idBestUsers() {
     return answer.sort((a, b) => b[0] - a[0]);
   }
 }
+
+module.exports = idBestUsers;
