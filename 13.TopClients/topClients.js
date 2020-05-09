@@ -1,28 +1,45 @@
 function idBestUsers() {
   let args = [...arguments];
-  let otherArgs = args.slice(1);
-  let clients = args[0].filter(
-    (el, index) =>
-      args[0].indexOf(el) === index &&
-      otherArgs.every((arr) => arr.indexOf(el) >= 0)
-  );
+  let numOfMonth = args.length;
 
-  if (clients.length === 0) {
-    return [];
-  } else {
-    let answer = [];
-    let allPurchases = [].concat(...args);
-    clients.sort().forEach((client) => {
-      let num = allPurchases.filter((el) => el === client).length;
-      let index = answer.findIndex((el) => el[0] === num);
-      if (index >= 0) {
-        answer[index][1].push(client);
-      } else {
-        answer.push([num, [client]]);
+  let otherArgs = args.slice(1);
+  let clients = {};
+  args[0].forEach((el) => {
+    if (!clients[el]) {
+      clients[el] = Array(numOfMonth).fill(0);
+      clients[el][0] = 1;
+    } else {
+      clients[el][0]++;
+    }
+  });
+
+  otherArgs.forEach((month, index) => {
+    month.forEach((client) => {
+      if (clients[client]) {
+        clients[client][index + 1]++;
       }
     });
-    return answer.sort((a, b) => b[0] - a[0]);
+  });
+  const map = new Map();
+
+  for (let key in clients) {
+    if (!clients[key].includes(0)) {
+      let sum = clients[key].reduce(function (a, b) {
+        return a + b;
+      }, 0);
+      if (map.has(sum)) {
+        let oldValue = map.get(sum);
+        oldValue.push(key);
+        oldValue.sort();
+      } else {
+        map.set(sum, [key]);
+      }
+    }
   }
+
+  const arr = Array.from(map);
+
+  return arr.sort((a, b) => b[0] - a[0]);
 }
 
 module.exports = idBestUsers;

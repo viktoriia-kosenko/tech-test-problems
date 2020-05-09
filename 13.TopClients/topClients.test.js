@@ -41,19 +41,3 @@ describe("idBestUsers", () => {
     ]);
   });
 });
-
-// describe("Example Tests", function () {
-//   it("Simple Cases", function () {
-
-//     var a1 = ['A043', 'B004', 'A025', 'A042', 'C025'];
-//     var a2 = ['B009', 'B040', 'B003', 'A042', 'A027', 'A044'];
-//     var a3 = ['A041', 'A026', 'B005']
-//     Test.assertSimilar(idBestUsers(a1, a2, a3), []);
-
-//     a1 = ['A042', 'B004', 'A025', 'A042', 'C025'];
-//     a2 = ['B009', 'B040', 'B004', 'A042', 'A025', 'A042'];
-//     a3 = ['A042', 'B004', 'A025', 'A042', 'C025', 'B009', 'B040', 'B004', 'A042', 'A025', 'A042'];
-//     var a4 = ['A042', 'A025', 'B004']
-//     Test.assertSimilar(idBestUsers(a1, a2, a3, a4), [[9, ['A042']], [5, ['A025', 'B004']]]);
-//   });
-// });
